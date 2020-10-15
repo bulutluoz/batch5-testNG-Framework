@@ -16,7 +16,7 @@ public class Day02_Test01 extends TestBase {
     //2."Login Portal" a  kadar asagi inin
     //3."Login Portal" a tiklayin
     //4.Diger window'a gecin
-    //5."username" ve  "password" kutularina deger yazdirin
+    //5."username" ve  "password" kutularina rastgele deger yazdirin
     //6."login" butonuna basin
     //7.Popup'ta cikan yazinin "validation failed" oldugunu test edin
     //8.Ok diyerek Popup'i kapatin
@@ -33,7 +33,7 @@ public class Day02_Test01 extends TestBase {
         Actions actions = new Actions(driver);
         actions.sendKeys(Keys.PAGE_DOWN).perform();
 
-
+        Thread.sleep(5000);
         //3."Login Portal" a tiklayin
 
         driver.findElement(By.xpath("//h1[text()='LOGIN PORTAL']")).click();
@@ -65,7 +65,7 @@ public class Day02_Test01 extends TestBase {
         Thread.sleep(5000);
         //6."login" butonuna basin
         driver.findElement(By.id("login-button")).click();
-
+        Thread.sleep(5000);
         //7.Popup'ta cikan yazinin "validation failed" oldugunu test edin
 
         String aktuelPopUpYazisi=driver.switchTo().alert().getText();
@@ -73,7 +73,7 @@ public class Day02_Test01 extends TestBase {
 
         SoftAssert softAssert=new SoftAssert();
         softAssert.assertEquals(aktuelPopUpYazisi,beklenenPopUpYazisi);
-
+        Thread.sleep(5000);
         //8.Ok diyerek Popup'i kapatin
         driver.switchTo().alert().accept();
         //9.Ilk sayfaya geri donun
